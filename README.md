@@ -1,4 +1,4 @@
-## cascader-tree-select
+## cascader-tree-select(Deprecated)
 
 > 一个级联树形选择控件
 > a cascader tree selector
