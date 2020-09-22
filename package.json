@@ -1,0 +1,90 @@
+{
+  "name": "@components/cascader-tree-select",
+  "version": "1.1.2",
+  "description": "A cascader tree selector",
+  "author": "BoldArialBlack <railchaplin@gmail.com>",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "start": "elf start",
+    "lib": "elf lib",
+    "umd": "elf umd",
+    "dist": "rimraf dist && elf dist",
+    "zip": "elf zip",
+    "unittest": "jest",
+    "eslint": "eslint -f html -o ./report/eslint.html src/**/*.{js,vue}",
+    "fix": "eslint --fix src/**/*.{js,vue}",
+    "sasslint": "sass-lint -v -q -o ./report/sasslint.html -f html",
+    "build": "rimraf lib && npm run umd && npm run lib && npm run dist && npm run zip"
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "src/**/*.s+(a|c)ss": [
+      "sass-lint -v -q"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "jest": {
+    "testURL": "http://localhost/",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleNameMapper": {
+      "^src/(.*)$": "<rootDir>/src/$1",
+      ".*\\.(css|scss)$": "<rootDir>/test/style-helper.js"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules(?!/@gs-ui/gs-ui)/"
+    ]
+  },
+  "dependencies": {
+    "@gs-ui/gs-ui": "^2.1.25",
+    "vue": "^2.5.17"
+  },
+  "devDependencies": {
+    "@gs-ui/elf": "^1.0.5",
+    "@gs-ui/eslint-config-standard": "^1.0.0",
+    "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-transform-vue-jsx": "^4.0.1",
+    "eslint": "^5.9.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^4.0.0",
+    "husky": "^1.2.0",
+    "jest": "^23.6.0",
+    "lint-staged": "^8.1.0",
+    "regenerator-runtime": "^0.13.1",
+    "rimraf": "^2.6.2",
+    "sass-lint": "^1.12.1",
+    "sass-lint-auto-fix": "^0.15.0",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "repository": {
+    "type": "gitlab",
+    "url": "https://gitlab.reducted.com/frontend/components/cascader-tree-select"
+  },
+  "bugs": {
+    "url": "https://gitlab.reducted.com/frontend/components/cascader-tree-select/issues"
+  }
+}

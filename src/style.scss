@@ -1,0 +1,151 @@
+
+$primary-color: #0073e8 !default;
+$disabled-color: #c5c5c5 !default;
+$font-color: #666 !default;
+
+.cascader-tree-select {
+  display: inline-block;
+  position: relative;
+  font-size: 12px;
+  line-height: 26px;
+  width: 100%;
+
+  .gs-input {
+    cursor: pointer;
+
+    &.is-hover {
+      border-color: $primary-color;
+    }
+  }
+
+  .gs-input-icon {
+    .gs-icon-down {
+      transition: transform .3s;
+      font-size: 12px;
+
+      &.is-reverse {
+        transform: rotate(180deg);
+      }
+    }
+
+    .cascader-tree-select__clearIcon {
+      z-index: 2;
+      padding-bottom: 4px;
+      color: #cdcdcd;
+      position: relative;
+      transition: color .2s cubic-bezier(.645, .045, .355, 1);
+    }
+  }
+
+  &.has-content {
+    .gs-input-icon {
+      width: 56px;
+    }
+
+    .cascader-tree-select__label {
+      padding-right: 56px;
+    }
+  }
+
+  .cascader-tree-select__label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    padding: 1px 25px 0 8px;
+    // line-height: 28px;
+    color: $font-color;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: left;
+    font-size: inherit;
+  }
+
+  &.cascader-tree-select--medium  {
+    font-size: 13px;
+    line-height: 28px;
+  }
+
+  &.cascader-tree-select--large {
+    font-size: 14px;
+    line-height: 30px;
+  }
+
+  &.is-disabled .cascader-tree-select__label {
+    z-index: 2;
+    color: $disabled-color;
+    cursor: not-allowed;
+  }
+}
+
+.cascader-tree-select-popper {
+  .cascader-tree-menu {
+    .gs-tree-node-content {
+      cursor: pointer;
+
+      &.is-hover-highlight.is-active:not(:hover) {
+        background-color: transparent;
+      }
+
+      &.is-disabled {
+        cursor: not-allowed;
+      }
+
+      .is-checked {
+        color: $primary-color;
+      }
+    }
+    
+    .gs-tree.is-expand-on-click {
+      .gs-tree-node-content {
+        &.is-disabled {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.cascader-tree-panel {
+  .cascader-tree-select {
+    &.has-content {
+      .gs-input-icon {
+        width: 32px;
+      }
+
+      .cascader-tree-select__label {
+        padding-right: 32px;
+      }
+    }
+  }
+
+  .cascader-tree-menu {
+    .gs-tree-node-content {
+      cursor: pointer;
+
+      &.is-hover-highlight.is-active:not(:hover) {
+        background-color: transparent;
+      }
+
+      &.is-disabled {
+        cursor: not-allowed;
+      }
+
+      .is-checked {
+        color: $primary-color;
+      }
+    }
+    
+    .gs-tree.is-expand-on-click {
+      .gs-tree-node-content {
+        &.is-disabled {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

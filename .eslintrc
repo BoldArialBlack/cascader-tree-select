@@ -1,0 +1,9 @@
+{
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
+  "extends": [
+    "plugin:vue/recommended",
+    "@gs-ui/eslint-config-standard"
+  ]
+}
